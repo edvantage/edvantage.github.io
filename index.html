@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html ng-app="fcfApp">
+  <head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+<script src="js/app.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <style>
+    body {
+      background: #fcfcfc;
+      background: #fff;
+    }
+    a {
+      color: #00e676;
+    }
+    blockquote {
+      border-left: 5px solid #1b5e20;
+      font-style: italic;
+    }
+    hr {
+      margin: 50px 0;
+    }
+    section {
+      margin: 50px 0;
+    }
+
+    .picture {
+      border: 10px solid white;
+      border-radius: 2px;
+      box-shadow: 0 2px 15px rgba(0,0,0,.5);
+    }
+
+    .name {
+      margin-left: 20px;
+      font-weight: 200;
+      letter-spacing: -4px;
+      font-size: 110px;
+    }
+
+    .subtitle {
+      font-weight: 200;
+      letter-spacing: .5px;
+    }
+    </style>
+  </head>
+
+  <body ng-controller="ApplicationController" ng-cloak>
+    <div class="section white-text green darken-3">
+      <div class="container">
+        <div class="row valign-wrapper">
+          <img class="picture" width="250" src="http://placebear.com/800/800">
+          <div class="col s9">
+            <p class="subtitle flow-text center">
+              {{ data.subtitle }}
+            </p>
+            <h1 class="name valign">
+              {{ data.name }}
+            </h1>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section white-text green darken-2">
+      <div class="container">
+        <div class="row">
+          <div ng-repeat="panel in data.panels" class="col s12 m6">
+            <p ng-bind-html="panel.primary | unsafe" class="flow-text"></p>
+            <blockquote>
+              {{ panel.snippet }}
+            </blockquote>
+            <div class="left-align">
+              <a class="btn btn-large modal-trigger green accent-4" href="#modal1">
+                {{ panel.button }}
+              </a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="center-align"><h1 class="teal-text">{{ data.giftAmountTitle }}</h1></div>
+        <div class="row">
+          <div ng-repeat="giftAmount in data.giftAmounts" class="col s12 m6">
+            <div class="card blue-grey lighten-2">
+              <div class="card-content white-text">
+                <span class="card-title">
+                  <i class="medium {{ giftAmount.icon }}" style="position: relative; top: 10px; margin-right: 20px"></i>
+                  <h4 style="display: inline-block">{{ giftAmount.title }}</h4></span>
+                <p class="flow-text" ng-bind-html="giftAmount.description | unsafe"></p>
+              </div>
+            </div>
+          </div>
+          <form class="col s12" style="text-align:center">
+            <div class="row">
+              <div class="input-field col s6">
+                <span id="amount-dollar-sign" style="font-size: 100px;">$</span>&nbsp;<input id="amount" type="text" class="validate" style="width: 50%; font-size: 100px; height: 100px; text-align: center;">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <hr>
+      <form class="col s12" style="text-align:center">
+        <h1 class="blue-grey-text" style="font-weight:300;letter-spacing:-3px">{{ data.form.title }}</h1>
+        <h3 class="blue-grey-text" style="font-weight:300;letter-spacing:-1px">{{ data.form.subtitle }}</h3>
+        <p class="left">
+          {{ data.form.description }}
+        </p>
+        <div class="row">
+          <div class="input-field col s6">
+             <i class="mdi-action-account-circle prefix"></i>
+            <input id="first_name" type="text" class="validate">
+            <label for="first_name">
+              {{ data.form.firstName }}
+          </label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" class="validate">
+            <label for="last_name">
+              {{ data.form.lastName }}
+          </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="mdi-communication-email prefix"></i>
+            <input id="email" type="email" class="validate">
+            <label for="email">
+              {{ data.form.email }}
+          </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="mdi-editor-mode-edit prefix"></i>
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <label for="textarea1">
+              {{ data.form.message }}
+          </label>
+          </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action" onclick="window.open('//cash.me/$alexkonrad')">
+          {{ data.form.pledge }}
+          <i class="mdi-content-send right"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h3 class="white-text">Thanks for coming!</h5>
+          <p class="grey-text text-lighten-4">Be sure to check back for more photos!</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Edvantage</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">More Info</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">How does it work?</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Who are we?</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        &copy; 2015 Sam's Family
+      <a class="grey-text text-lighten-4 right" href="#!">About Edvantage</a>
+      </div>
+    </div>
+  </footer>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>How does it work?</h4>
+        <p>Any contributions made go to a Square Cash account for funding an Edvest 529 educational savings plan set up and controlled by the parents.</p>
+        <p>After contributing with a credit or debit card, you will get a receipt from Square confirming your contribution. Then, the parents send you an mail to confirm that they're transferring the money into their 529 investment account.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
+
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <h4>What's a 529 Plan?</h4>
+        <p>A 529 plan is a tax-advantage education savings plan designed to help young parents save for the mounting costs of college and higher education.</p
+        <p>Any contribution made now will grow tax-free in an Edvest 529 investment account, and all the money in this account is required to be used for ualified educational expenses.</p>
+        <p>Making a gift to the plan now will allow your contribution to multiply as it grows tax free.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bin/materialize.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+      $('.modal-trigger').leanModal();
+    });
+    </script>
+  </body>
+</html>
