@@ -1,16 +1,19 @@
 var app = angular.module('fcfApp', []);
 
 var data = {
-  name: "Sammy Cott",
+  name: "Eloise Goodwill",
   subtitle: "Saving for college with First College Fund",
+  imagePath: "img/eloise.jpg",
   panels: [{
-    primary: "This year, to help Sam reach his goals, make a gift to his college fund.",
+    primary: "This year, to help Eloise reach her goals, make a gift to her college fund.",
     snippet: "Any contribution you make can multiply as it grows in a tax-advantaged investment account.",
-    button: "How does it work?"
+    button: "How does it work?",
+    modalUrl: "#modal1"
   }, {
     primary: "An <a href='edvest.com'>Edvest</a> 529 College Savings Plan allows contributions to grow tax-free",
-    snippet: "Any contribution you make can multiply as it grows in a tax-advantaged investment account.",
-    button: "How does it work?"
+    snippet: "Giving a gift now will help her for when she needs it the most.",
+    button: "What's a 529 Plan?",
+    modalUrl: "#modal2"
   }],
   giftAmountTitle: "What your gift can help with",
   giftAmounts: [
@@ -43,8 +46,11 @@ var data = {
     lastName: "Last Name",
     email: "Email",
     message: "Add a custom message!",
-    pledge: "Pledge!"
-  }
+    pledge: "Pledge!",
+    pledgeLink: "//cash.me/$alexkonrad"
+  }, footer: {
+
+  },
 };
 
 app.controller('ApplicationController', function($scope) {

@@ -22,6 +22,13 @@
     hr {
       margin: 50px 0;
     }
+    input,
+    textarea {
+      border-bottom: 1px solid #fff !important;
+    }
+    label {
+      color: #fff !important;
+    }
     section {
       margin: 50px 0;
     }
@@ -36,7 +43,11 @@
       margin-left: 20px;
       font-weight: 200;
       letter-spacing: -4px;
-      font-size: 110px;
+      font-size: 80px;
+    }
+
+    .input-field .prefix.active {
+      color: #fff;
     }
 
     .subtitle {
@@ -45,12 +56,11 @@
     }
     </style>
   </head>
-
   <body ng-controller="ApplicationController" ng-cloak>
     <div class="section white-text green darken-3">
       <div class="container">
         <div class="row valign-wrapper">
-          <img class="picture" width="250" src="http://placebear.com/800/800">
+          <img class="picture" width="250" ng-src="{{ data.imagePath }}">
           <div class="col s9">
             <p class="subtitle flow-text center">
               {{ data.subtitle }}
@@ -72,7 +82,7 @@
               {{ panel.snippet }}
             </blockquote>
             <div class="left-align">
-              <a class="btn btn-large modal-trigger green accent-4" href="#modal1">
+              <a class="btn btn-large modal-trigger green accent-4" ng-href="{{ panel.modalUrl }}">
                 {{ panel.button }}
               </a>
           </div>
@@ -83,10 +93,10 @@
     <div class="section">
       <div class="container">
         <div class="row">
-          <div class="center-align"><h1 class="teal-text">{{ data.giftAmountTitle }}</h1></div>
+          <div class="center-align"><h1 class="green-text text-darken-4">{{ data.giftAmountTitle }}</h1></div>
         <div class="row">
           <div ng-repeat="giftAmount in data.giftAmounts" class="col s12 m6">
-            <div class="card blue-grey lighten-2">
+            <div class="card green darken-2">
               <div class="card-content white-text">
                 <span class="card-title">
                   <i class="medium {{ giftAmount.icon }}" style="position: relative; top: 10px; margin-right: 20px"></i>
@@ -106,75 +116,77 @@
       </div>
     </div>
   </div>
-  <div class="container">
-    <hr>
-      <form class="col s12" style="text-align:center">
-        <h1 class="blue-grey-text" style="font-weight:300;letter-spacing:-3px">{{ data.form.title }}</h1>
-        <h3 class="blue-grey-text" style="font-weight:300;letter-spacing:-1px">{{ data.form.subtitle }}</h3>
-        <p class="left">
-          {{ data.form.description }}
-        </p>
-        <div class="row">
-          <div class="input-field col s6">
-             <i class="mdi-action-account-circle prefix"></i>
-            <input id="first_name" type="text" class="validate">
-            <label for="first_name">
-              {{ data.form.firstName }}
-          </label>
+  <div class="section white-text green darken-2">
+    <div class="container">
+      <hr>
+        <form class="col s12" style="text-align:center">
+          <h1 style="font-weight:300;letter-spacing:-3px">{{ data.form.title }}</h1>
+          <h3 style="font-weight:300;letter-spacing:-1px">{{ data.form.subtitle }}</h3>
+          <p class="left">
+            {{ data.form.description }}
+          </p>
+          <div class="row">
+            <div class="input-field white-text col s6">
+               <i class="mdi-action-account-circle prefix"></i>
+              <input id="first_name" type="text" class="validate">
+              <label for="first_name">
+                {{ data.form.firstName }}
+            </label>
+            </div>
+            <div class="input-field white-text col s6">
+              <input id="last_name" type="text" class="validate">
+              <label for="last_name">
+                {{ data.form.lastName }}
+            </label>
+            </div>
           </div>
-          <div class="input-field col s6">
-            <input id="last_name" type="text" class="validate">
-            <label for="last_name">
-              {{ data.form.lastName }}
-          </label>
+          <div class="row">
+            <div class="input-field white-text col s12">
+              <i class="mdi-communication-email prefix"></i>
+              <input id="email" type="email" class="validate">
+              <label for="email">
+                {{ data.form.email }}
+            </label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="mdi-communication-email prefix"></i>
-            <input id="email" type="email" class="validate">
-            <label for="email">
-              {{ data.form.email }}
-          </label>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="mdi-editor-mode-edit prefix"></i>
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <label for="textarea1">
+                {{ data.form.message }}
+            </label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="mdi-editor-mode-edit prefix"></i>
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">
-              {{ data.form.message }}
-          </label>
-          </div>
-        </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action" onclick="window.open('//cash.me/$alexkonrad')">
-          {{ data.form.pledge }}
-          <i class="mdi-content-send right"></i>
-        </button>
-      </form>
+          <a class="btn white black-text waves-effect waves-light" target="_blank" ng-href="{{ data.form.pledgeLink }}">
+            {{ data.form.pledge }}
+            <i class="mdi-content-send right"></i>
+          </a>
+        </form>
+      </div>
     </div>
   </div>
-  <footer class="page-footer">
+  <footer class="page-footer white">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h3 class="white-text">Thanks for coming!</h5>
-          <p class="grey-text text-lighten-4">Be sure to check back for more photos!</p>
+          <h3>Thanks for coming!</h5>
+          <p>Be sure to check back for more photos!</p>
         </div>
         <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Edvantage</h5>
+          <h5>Edvantage</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">More Info</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">How does it work?</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Who are we?</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Contact us</a></li>
+            <li><a href="#!">More Info</a></li>
+            <li><a href="#!">How does it work?</a></li>
+            <li><a href="#!">Who are we?</a></li>
+            <li><a href="#!">Contact us</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-        &copy; 2015 Sam's Family
+        &copy; 2015 Edvantage
       <a class="grey-text text-lighten-4 right" href="#!">About Edvantage</a>
       </div>
     </div>
@@ -197,7 +209,7 @@
       <div class="modal-content">
         <h4>What's a 529 Plan?</h4>
         <p>A 529 plan is a tax-advantage education savings plan designed to help young parents save for the mounting costs of college and higher education.</p
-        <p>Any contribution made now will grow tax-free in an Edvest 529 investment account, and all the money in this account is required to be used for ualified educational expenses.</p>
+        <p>Any contribution made now will grow tax-free in an Edvest 529 investment account, and all the money in this account is required to be used for qualified educational expenses.</p>
         <p>Making a gift to the plan now will allow your contribution to multiply as it grows tax free.</p>
       </div>
       <div class="modal-footer">
