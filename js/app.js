@@ -19,17 +19,17 @@ var data = {
   giftAmounts: [
     {
       title: "Tuition",
-      description: "One year at an in-state public school is <a style='color:white' href='http://www.collegedata.com/cs/content/content_payarticle_tmpl.jhtml?articleId=10064' target='_blank'>almost $10,000</a>.",
+      description: "One year at an in-state public school is <a style='color:white' href='http://www.collegedata.com/cs/content/content_payarticle_tmpl.jhtml?articleId=10064' target='_blank'>$9140</a>.",
       icon: "mdi-action-account-balance"
     },
     {
       title: "Room and Board",
-      description: "Room and board can average <a style='color:white' href='http://www.collegedata.com/cs/content/content_payarticle_tmpl.jhtml?articleId=10064' target='_blank'>around $10,000</a> per year.",
+      description: "Room and board can average <a style='color:white' href='http://www.collegedata.com/cs/content/content_payarticle_tmpl.jhtml?articleId=10064' target='_blank'>$9800</a> per year.",
       icon: "mdi-action-home"
     },
     {
       title: "Books and Supplies",
-      description: "Books and supplies cost <a style='color:white' href='http://www.collegedata.com/cs/content/content_payarticle_tmpl.jhtml?articleId=10064' target='_blank'>over $1,000</a> per year.",
+      description: "Books and supplies cost <a style='color:white' href='http://www.collegedata.com/cs/content/content_payarticle_tmpl.jhtml?articleId=10064' target='_blank'>$1200</a> per year.",
       icon: "mdi-action-home"
     }
   ],
