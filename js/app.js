@@ -2,7 +2,7 @@ var app = angular.module('fcfApp', []);
 
 var data = {
   name: "Eloise Goodwill",
-  subtitle: "...is saving for college",
+  subtitle: "...is saving for college!!!",
   imagePath: "img/eloise-profile.jpg",
   panels: [{
     primary: "Madeline and Tyler have started saving to send Eloise to college and you can help!",
@@ -10,13 +10,13 @@ var data = {
     button: "How does it work?",
     modalUrl: "#modal1"
   }, {
-    primary: "Eloise is using the <a href='edvest.com'>Edvest 529 plan</a> to save for college.",
+    primary: "Eloise is using the Edvest 529 plan to save for college.",
     snippet: "Giving a gift now will help her for when she needs it the most.",
     button: "What is a 529 Plan?",
     modalUrl: "#modal2"
   }],
   investments: [{
-    copy: "Investing in balanced funds is the proven way to maximize rate of return over time. This calculator shows the kind of growth you can achieve when you begin investing early and commit to making yearly contributions."
+    copy: "Your contributions will be invested in diversified mutual funds that will compound until Eloise gets to college. Use the calculator below to see how much an annual contribution will grow to assuming 7% interest."
   }, {
     copy: "Enter a number to the input below. If you were to invest that amount each year, the graph will show the expected returns over the course of 18 years with an average rate of return of 7%."
   }],
@@ -25,7 +25,7 @@ var data = {
   }, {
     copy: "After you submit the form, you will be redirected to Square Cash to make a deposit to the account Madelin and Tyler have set up for Eloise's 529 plan."
   }],
-  giftAmountTitle: "What your gift can help with",
+  giftAmountTitle: "How you can help",
   giftAmounts: [
     {
       title: "Tuition",
@@ -44,6 +44,7 @@ var data = {
     }
   ],
   form: {
+    amount: "Pledge amount",
     title: "How you can contribute",
     subtitle: "Fill out the form below to make your pledge.",
     description: "Madeline and Tyler have set up a Square Cash account to receive gifts for the 529 plan. Filling out this form will only notify them of your intent to pledge. Once they receive the funds in their Square Cash account and they're notified of your pledge, they will dispense it into their 529 Plan for Eloise.",
@@ -52,7 +53,7 @@ var data = {
     email: "Email",
     message: "Add a custom message!",
     pledge: "Pledge for 2015!",
-    pledgeLink: "//cash.me/$rtylerend"
+    pledgeLink: "//cash.me/$EloiseCollegeFund"
   }, footer: {
 
   },

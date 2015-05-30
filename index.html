@@ -3,6 +3,7 @@
   <head>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script> -->
 <!-- <script src="bar-chart/app.js"></script> -->
 <script src="js/app.js"></script>
@@ -98,6 +99,9 @@
     }
 
     .contribution-input {
+      background: #efe;
+      border: 1px solid #efefef;
+      border-radius: 5px;
       font-size: 60px;
       margin: 0 auto;
       max-width: 300px;
@@ -144,6 +148,7 @@
     }
     </style>
   </head>
+  <!--
   <body ng-controller="ApplicationController" ng-cloak>
     <div class="section">
       <div class="container">
@@ -204,11 +209,13 @@
             <label class="black-text" for="contribution">$</label>
             <input type="number" id="contribution" name="contribution" placeholder="Enter a contribution" value="100">
           </form> -->
+          <!--
           <div class="contribution-input teal-text text-darken-1">
             <span class="dollar-sign">$</span>
             <span contenteditable="true" id="contribution" ng-model="expectedContribution">100</span>
           </div>
           <!-- <div class="teal-text text-darken-1" ng-bind-html="expectedReturn | unsafe"> -->
+          <!--
           </div>
           <bar-chart class="investment-chart">
           </bar-chart>
@@ -299,6 +306,7 @@
     </div>
 
     <!-- Modal Structure -->
+    <!--
     <div id="modal1" class="modal">
       <div class="modal-content">
         <h4 class="teal-text text-darken-2">How does it work?</h4>
@@ -342,5 +350,13 @@
     ga('send', 'pageview');
 
   </script>
+
+  <script>
+    var dataRef = new Firebase('https://amber-fire-1402.firebaseio-demo.com/');
+
+  </script>
+-->
+<h1 style="text-align: center;">What if you could save for college with birthday parties?</h1>
+<h2 style="text-align: center;">Coming soon...</h2>
   </body>
 </html>

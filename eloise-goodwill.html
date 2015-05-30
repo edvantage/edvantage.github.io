@@ -98,6 +98,9 @@
     }
 
     .contribution-input {
+      background: #dfe;
+      border: 1px solid #efefef;
+      border-radius: 5px;
       font-size: 60px;
       margin: 0 auto;
       max-width: 300px;
@@ -141,6 +144,11 @@
 
     g:hover text {
       display: block;
+    }
+
+    .investment-chart {
+      position: relative;
+      top: -30px;
     }
     </style>
   </head>
@@ -255,15 +263,24 @@
             </div>
           </div>
           <div class="row">
+            <div class="input-field white-text col s6">
+              <i class="mdi-editor-attach-money prefix"></i>
+              <input id="amount" type="text" class="validate">
+              <label for="amount">
+                {{ data.form.amount }}
+            </label>
+            </div>
+          </div>
+          <div class="row">
             <div class="input-field col s12">
               <i class="mdi-editor-mode-edit prefix"></i>
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <label for="textarea1">
+              <textarea id="message" class="materialize-textarea"></textarea>
+              <label for="message">
                 {{ data.form.message }}
             </label>
             </div>
           </div>
-          <a class="btn white black-text waves-effect waves-light" target="_blank" ng-href="{{ data.form.pledgeLink }}">
+          <a class="submit btn white black-text waves-effect waves-light" target="_blank" ng-href="{{ data.form.pledgeLink }}">
             {{ data.form.pledge }}
             <i class="mdi-content-send right"></i>
           </a>
@@ -281,10 +298,10 @@
         <div class="col l4 offset-l2 s12">
           <h5>Edvantage</h5>
           <ul>
-            <li><a href="#!">More Info</a></li>
-            <li><a href="#!">How does it work?</a></li>
-            <li><a href="#!">Who are we?</a></li>
-            <li><a href="#!">Contact us</a></li>
+            <li><a href="http://firstcollegefund.com">More Info</a></li>
+            <li><a href="http://firstcollegefund.com">How does it work?</a></li>
+            <li><a href="http://firstcollegefund.com">Who are we?</a></li>
+            <li><a href="http://firstcollegefund.com">Contact us</a></li>
           </ul>
         </div>
       </div>
@@ -292,7 +309,7 @@
     <div class="footer-copyright teal darken-2">
       <div class="container">
         &copy; 2015 Edvantage
-      <a class="grey-text text-lighten-4 right" href="#!">About Edvantage</a>
+      <a class="grey-text text-lighten-4 right" href="http://firstcollegefund.com">About Edvantage</a>
       </div>
     </div>
   </footer>
@@ -340,6 +357,23 @@
 
     ga('create', 'UA-63532009-1', 'auto');
     ga('send', 'pageview');
+
+  </script>
+
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <script>
+    var dataRef = new Firebase('https://amber-fire-1402.firebaseio.com/');
+
+    $('.submit').on('click', function (e) {
+      var pledge = {
+        firstName: $('#first_name').val(),
+        lastName: $('#last_name').val(),
+        email: $('#email').val(),
+        amount: $('#amount').val(),
+        message: $('#message').val()
+      };
+      dataRef.push(pledge);
+    })
 
   </script>
   </body>
