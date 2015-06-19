@@ -65,7 +65,7 @@ d3.select('#contribution').on('input', function() {
     for (var i = 1; i < 18; i++) {
       returnsData[i] = contribution + Math.ceil(returnRate() * returnsData[i-1]);
       // returnsData[i] =  Math.ceil(returnRate() * returnsData[i-1]);
-      // returnsData[i] = (1.08 * returnsData[i-1]) < 100 ? (1.08 * returnsData[i-1]).toFixed(2) : Math.floor(1.08 * returnsData[i-1])
+      // returnsData[i] = (1.08 * returnsData[i-1]) < 25 ? (1.08 * returnsData[i-1]).toFixed(2) : Math.floor(1.08 * returnsData[i-1])
     }
     update(returnsData);
   }
