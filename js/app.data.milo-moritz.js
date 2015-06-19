@@ -51,7 +51,7 @@ var data = {
     email: "Email",
     message: "Add a custom message!",
     pledge: "Pledge for 2015!",
-    pledgeLink: "//cash.me/$MiloCollegeFund"
+    pledgeLink: "//cash.me/$MiloManCollegeFund"
   }, footer: {
 
   },
