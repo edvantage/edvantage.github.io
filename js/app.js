@@ -112,7 +112,8 @@ app.directive('barChart', ['d3Service', function (d3Service) {
                     .style({width: '100%',
                             height: '410px'});
 
-        returnRate = d3.random.normal(1.07, .02)
+        // returnRate = d3.random.normal(1.07, .02)
+        returnRate = function () { return 1.07 };
 
         var setValue = function(val) {
           var ev = d3.event;
