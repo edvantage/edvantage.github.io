@@ -1,7 +1,7 @@
 var data = {
   name: "Eloise Goodwill",
   subtitle: "...is saving for college!!!",
-  imagePath: "img/eloise-profile.jpg",
+  imagePath: "../img/eloise-profile.jpg",
   panels: [{
     primary: "Madeline and Tyler have started saving to send Eloise to college and you can help!",
     snippet: "Contributions grow over time in a tax-advantaged investment account.",
@@ -54,8 +54,5 @@ var data = {
     pledgeLink: "//cash.me/$EloiseCollegeFund"
   }, footer: {
 
-  },
-  returns: returnsData
+  }
 };
-
-var returnsData = [];

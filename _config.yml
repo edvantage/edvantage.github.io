@@ -1,0 +1,77 @@
+defaults:
+  -
+    scope:
+      path: ''
+      type: pages
+    values:
+      subtitle: ...is saving for college!!!
+      modals:
+        -
+          title: How does it work?
+          content: >
+            Any contributions made go to a Square Cash account
+            for funding an Edvest 529 educational savings plan
+            set up and controlled by the parents. After 
+            contributing with a credit or debit card, you will 
+            get a receipt from Square confirming your contribution. 
+            Then, the parents send you an mail to confirm that 
+            they're transferring the money into their 
+            529 investment account.
+          button: OK
+        -
+          title: What's a 529 Plan?
+          content: >
+            A 529 plan is a tax-advantage education savings plan 
+            designed to help young parents save for the mounting 
+            costs of college and higher education. Any contribution 
+            made now will grow tax-free in an Edvest 529 investment 
+            account, and all the money in this account is required 
+            to be used for qualified educational expenses. Making 
+            a gift to the plan now will allow your contribution to 
+            multiply as it grows tax free.
+          button: OK
+      form: 
+        amount: Pledge amount
+        title: How you can contribute
+        subtitle: Fill out the form below to make your pledge.
+        first_name: First Name
+        last_name: Last Name
+        email: Email
+        message: Add a custom message!
+        pledge: Pledge for 2015!
+      gift_amount_title: 'How you can help'
+      gift_amounts: 
+        - 
+          title: Tuition
+          description: >
+            One year at an in-state public school is <a style='color:white' href='http://www.collegedata.com/cs/content/content_payarticle_tmpl.jhtml?articleId=10064' target='_blank'>$9140</a>."
+            icon: mdi-action-account-balance
+        - 
+          title: Room and Board
+          description: >
+            Room and board can average <a style='color:white' href='http://www.collegedata.com/cs/content/content_payarticle_tmpl.jhtml?articleId=10064' target='_blank'>$9800</a> per year.
+          icon: mdi-action-home
+        - 
+          title: Books and Supplies
+          description: >
+            Books and supplies cost <a style='color:white' href='http://www.collegedata.com/cs/content/content_payarticle_tmpl.jhtml?articleId=10064' target='_blank'>$1200</a> per year.
+          icon: mdi-action-home
+      footer:
+        title: Thanks for coming!
+        subtitle: Be sure to check back for more photos!
+        company: Edvantage
+        links:
+          -
+            title: More Info
+            href: firstcollegefund.com
+          -
+            title: How does it work?
+            href: firstcollegefund.com
+          -
+            title: Who are we?
+            href: firstcollegefund.com
+          -
+            title: Contact us
+            href: firstcollegefund.com
+        copyright: >
+          &copy; 2015 Edvantage

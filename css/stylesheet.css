@@ -1,0 +1,136 @@
+body {
+  background: #fcfcfc;
+  background: #fff;
+}
+a {
+  color: #00e676;
+  color: #00bfa5;
+  color: #e0f2f1;
+  color: #b2dfdb;
+  color: #80cbc4;
+}
+blockquote {
+  border-left: 5px solid #00bfa5;
+  border-left: 5px solid #26a69a;
+  font-style: italic;
+}
+hr {
+  margin: 50px 0;
+}
+input,
+textarea {
+  border-bottom: 1px solid #fff !important;
+}
+section {
+  margin: 50px 0;
+}
+
+h2 {
+  font-weight: 300;
+}
+
+.flow-text {
+  font-size: 1.58rem;
+}
+
+.panel-text {
+  font-size: 1.4rem;
+  min-height: 90px;
+}
+
+.picture {
+  border: 10px solid white;
+  border-radius: 2px;
+  box-shadow: 0 2px 15px rgba(0,0,0,.5);
+}
+
+.name {
+  font-weight: 300;
+  text-align: center;
+  margin: 0;
+}
+
+.input-field .prefix.active {
+  color: #fff;
+}
+
+.subtitle {
+  font-weight: 300;
+  letter-spacing: .5px;
+  margin: 0;
+}
+
+.pledge-form label {
+  color: #fff !important;
+}
+
+.profile-image {
+  width: 400px;
+}
+
+/** SVG Chart Styles **/
+
+form {
+  width: 100%;
+  text-align: center;
+}
+
+input[type=number] {
+  font-size: 60px;
+  height: 100px;
+  text-align: center;
+  width: 300px;
+}
+
+.contribution-input {
+  background: #dfe;
+  border: 1px solid #efefef;
+  border-radius: 5px;
+  font-size: 60px;
+  margin: 0 auto;
+  max-width: 300px;
+  text-align: center;
+}
+
+.contribution-input span:focus {
+  outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.contribution label {
+  font-size: 60px;
+}
+
+.chart rect {
+  fill: steelblue;
+  fill: #00796b;
+}
+
+.chart rect:hover {
+  fill: brown;
+  fill: #80cbc4;
+}
+
+.chart rect:hover + text {
+  fill: teal;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+g:hover text {
+  display: block;
+}
+
+.investment-chart {
+  position: relative;
+  top: -30px;
+}

@@ -1,66 +1,6 @@
 var app = angular.module('fcfApp', []);
 
-// var data = {
-//   name: "Eloise Goodwill",
-//   subtitle: "...is saving for college!!!",
-//   imagePath: "img/eloise-profile.jpg",
-//   panels: [{
-//     primary: "Madeline and Tyler have started saving to send Eloise to college and you can help!",
-//     snippet: "Contributions grow over time in a tax-advantaged investment account.",
-//     button: "How does it work?",
-//     modalUrl: "#modal1"
-//   }, {
-//     primary: "Eloise is using the Edvest 529 plan to save for college.",
-//     snippet: "Giving a gift now will help her for when she needs it the most.",
-//     button: "What is a 529 Plan?",
-//     modalUrl: "#modal2"
-//   }],
-//   investments: [{
-//     copy: "Your contributions will be invested in diversified mutual funds that will compound until Eloise gets to college. Use the calculator below to see how much an annual contribution will grow to assuming 7% interest."
-//   }, {
-//     copy: "Enter a number to the input below. If you were to invest that amount each year, the graph will show the expected returns over the course of 18 years with an average rate of return of 7%."
-//   }],
-//   pledgeInfos: [{
-//     copy: "Submitting this form will only notify Madeline and Tyler that you intend to donate--no payment or financial information is necessary."
-//   }, {
-//     copy: "After you submit the form, you will be redirected to Square Cash to make a deposit to the account Madelin and Tyler have set up for Eloise's 529 plan."
-//   }],
-//   giftAmountTitle: "How you can help",
-//   giftAmounts: [
-//     {
-//       title: "Tuition",
-//       description: "One year at an in-state public school is <a style='color:white' href='http://www.collegedata.com/cs/content/content_payarticle_tmpl.jhtml?articleId=10064' target='_blank'>$9140</a>.",
-//       icon: "mdi-action-account-balance"
-//     },
-//     {
-//       title: "Room and Board",
-//       description: "Room and board can average <a style='color:white' href='http://www.collegedata.com/cs/content/content_payarticle_tmpl.jhtml?articleId=10064' target='_blank'>$9800</a> per year.",
-//       icon: "mdi-action-home"
-//     },
-//     {
-//       title: "Books and Supplies",
-//       description: "Books and supplies cost <a style='color:white' href='http://www.collegedata.com/cs/content/content_payarticle_tmpl.jhtml?articleId=10064' target='_blank'>$1200</a> per year.",
-//       icon: "mdi-action-home"
-//     }
-//   ],
-//   form: {
-//     amount: "Pledge amount",
-//     title: "How you can contribute",
-//     subtitle: "Fill out the form below to make your pledge.",
-//     description: "Madeline and Tyler have set up a Square Cash account to receive gifts for the 529 plan. Filling out this form will only notify them of your intent to pledge. Once they receive the funds in their Square Cash account and they're notified of your pledge, they will dispense it into their 529 Plan for Eloise.",
-//     firstName: "First Name",
-//     lastName: "Last Name",
-//     email: "Email",
-//     message: "Add a custom message!",
-//     pledge: "Pledge for 2015!",
-//     pledgeLink: "//cash.me/$EloiseCollegeFund"
-//   }, footer: {
-
-//   },
-//   returns: returnsData
-// };
-
-// var returnsData = [];
+var returnsData = [];
 
 app.factory('d3Service', ['$document', '$q', '$rootScope',
   function($document, $q, $rootScope) {
@@ -86,16 +26,13 @@ app.factory('d3Service', ['$document', '$q', '$rootScope',
 }]);
 
 app.controller('ApplicationController', function($scope) {
-  $scope.data = data;
-  $scope.returns = returnsData;
-  window.scope = $scope;
+
 });
 
 app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
 
 app.filter('last', function () {
   return function (array) {
-    console.log(array)
     return array[array.length - 1]
   }
 });
@@ -112,7 +49,6 @@ app.directive('barChart', ['d3Service', function (d3Service) {
                     .style({width: '100%',
                             height: '410px'});
 
-        // returnRate = d3.random.normal(1.07, .02)
         returnRate = function () { return 1.07 };
 
         var setValue = function(val) {
@@ -124,8 +60,6 @@ app.directive('barChart', ['d3Service', function (d3Service) {
               returnsData[0] = contribution;
               for (var i = 1; i < 18; i++) {
                 returnsData[i] = contribution + Math.ceil(returnRate() * returnsData[i-1]);
-                // returnsData[i] =  Math.ceil(returnRate() * returnsData[i-1]);
-                // returnsData[i] = (1.08 * returnsData[i-1]) < 100 ? (1.08 * returnsData[i-1]).toFixed(2) : Math.floor(1.08 * returnsData[i-1])
               }
               update(svg, returnsData);
           }, 500)
@@ -144,12 +78,8 @@ app.directive('barChart', ['d3Service', function (d3Service) {
           returnsData[0] = contribution;
           for (var i = 1; i < 18; i++) {
             returnsData[i] = contribution + Math.ceil(returnRate() * returnsData[i-1]);
-            // returnsData[i] =  Math.ceil(returnRate() * returnsData[i-1]);
-            // returnsData[i] = (1.08 * returnsData[i-1]) < 100 ? (1.08 * returnsData[i-1]).toFixed(2) : Math.floor(1.08 * returnsData[i-1])
           }
           update(svg, returnsData);
-
-          // placeCaretAtEnd(document.getElementById('contribution'));
         }
 
         window.Materialize.scrollFire([{selector: '.contribution-input', offset: 300, callback: 'updateChart()'}])
@@ -185,7 +115,6 @@ var delay = (function(){
 })();
 
 var placeCaretAtEnd = function(el) {
-  // el.focus();
   if (typeof window.getSelection != "undefined"
         && typeof document.createRange != "undefined") {
     var range = document.createRange();
@@ -202,20 +131,10 @@ var placeCaretAtEnd = function(el) {
   }
 }
 
-// var returnRate = function () { return 1.07 };
-// for (var i = 0; i < 18; i++) {
-//   if (i == 0) {
-//     returnsData[i] = 100;
-//   } else {
-//     returnsData[i] = 100 + Math.ceil(returnRate() * returnsData[i-1]);
-//   }
-// }
-
-
 var update = function (svg, data) {
   var margin = {top: 20, right: 30, bottom: 30, left: 40},
-    width = svg[0][0].clientWidth// - margin.left - margin.right,
-    height = svg[0][0].clientHeight// - margin.top - margin.bottom,
+    width = svg[0][0].clientWidth
+    height = svg[0][0].clientHeight
     barWidth = width / data.length;
 
   var x = d3.scale.linear()
@@ -232,18 +151,15 @@ var update = function (svg, data) {
   var chart = svg
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)
-    // .append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top ')');
 
   var bar = chart.selectAll('g')
     .data(data);
 
-  // bar.select('*').remove();
   bar.enter().append('g').attr('transform',
     function(d, i) {
       return "translate(" + i * barWidth + ", 0)";
     });
 
-  // bar.selectAll('*').remove();
   bar.selectAll('rect')
     .transition()
     .duration(500)
@@ -272,27 +188,22 @@ var update = function (svg, data) {
 
 app.directive('contenteditable', ['$sce', function($sce) {
   return {
-    restrict: 'A', // only activate on element attribute
-    require: '?ngModel', // get a hold of NgModelController
+    restrict: 'A',
+    require: '?ngModel',
     link: function(scope, element, attrs, ngModel) {
-      if (!ngModel) return; // do nothing if no ng-model
+      if (!ngModel) return;
 
-      // Specify how UI should be updated
       ngModel.$render = function() {
         element.html($sce.getTrustedHtml(ngModel.$viewValue || ''));
       };
 
-      // Listen for change events to enable binding
       element.on('blur keyup change', function() {
         scope.$evalAsync(read);
       });
-      read(); // initialize
+      read();
 
-      // Write data to the model
       function read() {
         var html = element.html();
-        // When we clear the content editable the browser leaves a <br> behind
-        // If strip-br attribute is provided then we strip this out
         if ( attrs.stripBr && html == '<br>' ) {
           html = '';
         }
